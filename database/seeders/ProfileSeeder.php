@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Profile;
 use Illuminate\Support\Str;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,8 +16,8 @@ class ProfileSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('profiles')->insert([
-           ['name'=>'Maxim',
+        $profiles = [[
+            'name'=>'Maxim',
             'surname'=>'Kuchin',
             'email'=>Str::random(7).'gmail.com'],
             ['name'=>'Ivan',
@@ -28,6 +29,9 @@ class ProfileSeeder extends Seeder
             ['name'=>'Pavel',
                 'surname'=>'Afonasiev',
                 'email'=>Str::random(7).'gmail.com']
-        ]);
+        ];
+        foreach ($profiles as $profile) {
+            Profile:create($profile);
+        }
     }
 }
