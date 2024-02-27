@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             ['login'=>'KVAKA',
                 'password'=> Hash::make(Str::random(8)),
             ],
-            ['name'=>'Lady_gin',
+            ['login'=>'Lady_gin',
                 'password'=> Hash::make(Str::random(7)),
             ]
             ]);
