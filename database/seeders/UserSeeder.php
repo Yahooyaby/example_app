@@ -14,29 +14,25 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'name'=>'Maxim',
-                'surname'=>'Kuchin',
-                'email'=>Str::random(7).'@gmail.com'
+                'login'=>'Yahooyaby',
+                'password'=>Hash::make(Str::random(7))
             ],
             [
-                'name'=>'Ivan',
-                'surname'=>'Slyadnev',
-                'email'=>Str::random(7).'@gmail.com'
+                'login'=>'Kvakusha',
+                'password'=>Hash::make(Str::random(7))
             ],
             [
-                'name'=>'Vladislav',
-                'surname'=>'Ladygin',
-                'email'=>Str::random(7).'@gmail.com'
+                'login'=>'Lady_gin',
+                'password'=>Hash::make(Str::random(7))
             ],
             [
-                'name'=>'Pavel',
-                'surname'=>'Afanasiev',
-                'email'=>Str::random(7).'@gmail.com'
+                'login'=>'Intrider',
+                'password'=>Hash::make(Str::random(7))
             ]
         ];
 
         foreach ($users as $user) {
-            User::($user);
+            User::create($user);
         }
 
     }
