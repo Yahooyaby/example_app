@@ -62,8 +62,9 @@ class UserProfileSeeder extends Seeder
         ];
 
         foreach ($data as $value) {
-            $user = User::updateOrCreate($value['user']);
-            $user->profile()->updateOrCreate($value['profile']);
+            if($user = User::updateOrCreate($value['user'])) {
+                $user->profile()->updateOrCreate($value['profile']);
+            }
         }
     }
 }
