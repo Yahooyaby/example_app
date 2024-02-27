@@ -31,7 +31,7 @@ class ProfileSeeder extends Seeder
                 'email'=>Str::random(7).'gmail.com']
         ];
         foreach ($profiles as $profile) {
-            Profile:create($profile);
+            Profile:updateOrCreate($profile);
         }
     }
 }
