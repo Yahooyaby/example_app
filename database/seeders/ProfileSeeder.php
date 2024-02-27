@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Profile;
 use Illuminate\Support\Str;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,19 +16,35 @@ class ProfileSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('profiles')->insert([
-           ['name'=>'Maxim',
-            'surname'=>'Kuchin',
-            'email'=>Str::random(7).'gmail.com'],
-            ['name'=>'Ivan',
+        $profiles = [
+            [
+                'name'=>'Maxim',
+                'surname'=>'Kuchin',
+                'email'=>Str::random(7).'gmail.com',
+                'user_id' => 1
+            ],
+            [
+                'name'=>'Ivan',
                 'surname'=>'Slyadnev',
-                'email'=>Str::random(7).'gmail.com'],
-            ['name'=>'Vladislav',
+                'email'=>Str::random(7).'gmail.com',
+                'user_id' => 2
+            ],
+            [
+                'name'=>'Vladislav',
                 'surname'=>'Ladygin',
-                'email'=>Str::random(7).'gmail.com'],
-            ['name'=>'Pavel',
+                'email'=>Str::random(7).'gmail.com',
+                'user_id' => 3
+            ],
+            [
+                'name'=>'Pavel',
                 'surname'=>'Afonasiev',
-                'email'=>Str::random(7).'gmail.com']
-        ]);
+                'email'=>Str::random(7).'gmail.com',
+                'user_id' => 4
+            ]
+        ];
+
+        foreach ($profiles as $profile) {
+            Profile::updateOrCreate($profile);
+        }
     }
 }
