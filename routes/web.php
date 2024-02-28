@@ -4,6 +4,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstController;
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,7 @@ Route::get('/vanya/kva', [FirstController::class,'all']
 );
 Route::get('/posts',[PostController::class,'show']
 );
+Route::get('/profiles',[ProfileController::class,'show']);
 Route::get('/users',[UserController::class,'show']
 );
 Route::prefix('menu')->group(function (){
