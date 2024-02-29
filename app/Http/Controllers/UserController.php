@@ -13,7 +13,7 @@ class UserController extends Controller
     public function show()
     {
         $user = User::find(1);
-        dump($user);
+        dump($user->profile->name);
 
     }
 }

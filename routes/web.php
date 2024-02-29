@@ -32,12 +32,6 @@ Route::get('/posts',[PostController::class,'show']
 Route::get('/profiles',[ProfileController::class,'show']);
 Route::get('/users',[UserController::class,'show']
 );
-Route::prefix('menu')->group(function (){
-Route::get('/alcohol', function () {
-    return 'vodka';
-});
-Route::get('/soups', function () {
-    return 'soup';
-});
-});
 
+Route::get('/form',[ProfileController::class,'form']);
+Route::get('/result',[ProfileController::class,'result']);
