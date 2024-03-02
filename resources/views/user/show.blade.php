@@ -1,17 +1,10 @@
+{{--<table>--}}
+{{--    @foreach ($users as $user)--}}
+{{--        <tr>--}}
+{{--            <td> <b>{{$user->login}}</b></td>--}}
+{{--            <td><a href="{{ route('user.delete', $user->id) }}">Delete</a></td>--}}
+{{--        </tr>--}}
+{{--    @endforeach--}}
+{{--</table>--}}
 
-@include ('components.layout')
-<head> <link rel="stylesheet" href="/resources/css/app.css"></head>
-<table>
-    <tr>
-    <th>title</th>
-    <th>name</th>
-    <th>salary</th>
-    </tr>
-@foreach ($users as $user)
-    <tr>
-<td> {{$user->name}}</td>
-        <td> {{$user->email}}</td>
-        <td> {{$user->salary}}</td>
-        </tr>
-@endforeach
-</table>
+KVAVAVAV

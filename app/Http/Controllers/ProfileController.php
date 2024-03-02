@@ -13,7 +13,11 @@ class ProfileController extends Controller
         return view('user.show',['profiles'=>$profiles]);
     }
 
-    public function form(){
+    public function form(Request $request){
+        if ($request->has('title') && $request->has('slug')){
+            $data = $request->except('title');
+            dump($data);
+            }
         return view('profile.form');
     }
 
