@@ -38,7 +38,10 @@ Route::get('/profiles',[ProfileController::class,'show']);
 
 
 Route::match(['get', 'post'], '/read', [UserController::class, 'read'])->name('user.read');
-Route::get('/create',[UserController::class,'create']);
+Route::get('/create',[UserController::class,'create'])->name('user.create');
 
-Route::get('/read/{user}/delete', [UserController::class, 'delete'])->name('user.delete');
-Route::get('/read/{user}/update', [UserController::class, 'update'])->name('user.update');
+Route::delete('/read/{user}/delete', [UserController::class, 'delete'])->name('user.delete');
+Route::put('/read/{user}/update', [UserController::class, 'update'])->name('user.update');
+Route::get('/read/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+
+

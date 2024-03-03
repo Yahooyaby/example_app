@@ -26,22 +26,24 @@ class UserController extends Controller
             User::create($request->all());
             return redirect('/read')->with('success', 'Данные пользователя успешно made');
         }
-        if ($request->has('id')) {
-            // Запрос на обновление данных существующего пользователя
-            $user = User::find($request->id);
-            $user->update($request->all());
-            $user->save();
-            return redirect('/read')->with('success', 'Данные пользователя успешно обновлены');
-        }
+
         $users = User::all();
         return view('user.read',['users'=>$users]);
     }
+
+    public function update(Request $request){
+        $user = User::find($request->id);
+        $user->update($request->all());
+        $user->save();
+        return redirect('/read')->with('success', 'Данные пользователя успешно обновлены');
+
+    }
+    public function edit(User $user){
+        return view('user.edit',['user'=>$user]);
+    }
     public function delete(User $user){
         $user -> delete();
-        return redirect()->route('user.read');
-    }
-    public function update(Request $request,User $user){
-        return view('user.update');
+       return redirect()->back();
     }
 }
 
