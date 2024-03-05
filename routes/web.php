@@ -30,18 +30,14 @@ Route::get('/posts',[PostController::class,'show']
 );
 Route::get('/profiles',[ProfileController::class,'show']);
 
+Route::get('/sessions',[PostController::class,'index']);
 
-//Route::post('/users',[UserController::class,'result']
-//)->name('user.show');
-//Route::delete('/users/{user}/delete',[UserController::class,'delete'])->name('user.delete');
-//Route::get('/user_form',[UserController::class,'form']);
-
-
-Route::match(['get', 'post'], '/read', [UserController::class, 'read'])->name('user.read');
+//Route::match(['get', 'post'], '/read', [UserController::class, 'read'])->name('user.read');
+Route::get('/users',[UserController::class,'index'])->name('user.index');
 Route::get('/create',[UserController::class,'create'])->name('user.create');
-
-Route::delete('/read/{user}/delete', [UserController::class, 'delete'])->name('user.delete');
-Route::put('/read/{user}/update', [UserController::class, 'update'])->name('user.update');
-Route::get('/read/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::post('/store',[UserController::class,'store'])->name('user.store');
+Route::delete('/users/{user}', [UserController::class, 'delete'])->name('user.delete');
+Route::put('/users/{user}', [UserController::class, 'update'])->name('user.update');
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
 
 

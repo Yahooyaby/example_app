@@ -8,11 +8,13 @@
     <title>ФОРМА РЕГИСТРАЦИИ</title>
 </head>
 <body>
-<form action="/read" method="post">
-    @csrf
-    Login<input name="login">
-    Password<input name ='password'>
-    <input type="submit">
-</form>
+{{Form::open(['route' => ['user.store'], 'method' => 'POST'])}}
+{{ Form::label('login', 'Логин') }}
+{{ Form::text('login') }}
+{{ Form::label('password', 'Пароль') }}
+{{ Form::password('password') }}
+{{Form::submit('Create') }}
+{{ Form::close() }}
+
 </body>
 </html>

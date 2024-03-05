@@ -8,12 +8,9 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-     public function show()
+     public function index(Request $request)
      {
-         DB::enableQueryLog();
-         DB::table('posts')->where('id', '!=', 3)->get();
-         dump(DB::getQueryLog());
-//         return view('post.show',['posts'=>$posts]);
-         }
+         dump($request->session());
+     }
 
 }

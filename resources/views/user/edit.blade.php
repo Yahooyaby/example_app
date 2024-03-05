@@ -1,9 +1,8 @@
-<form action='{{ route('user.update', $user->id) }}'  method="POST">
-    @csrf
-    @method('PUT')
-    <input type="hidden" name="id" value="{{ $user->id }}">
-    Change Login <input name="login"><br>
-    Change Password <input name="password">
-
-    <input type="submit" VALUE="Update" >
-</form>
+{{Form::model($user,['route' => ['user.update', $user->id], 'method' => 'PUT'])}}
+{{ Form::hidden('id', $user->id) }}
+{{ Form::label('login', 'Логин') }}
+{{ Form::text('login', $user->login) }}
+{{ Form::label('password', 'Пароль') }}
+{{ Form::password('password') }}
+{{Form::submit('Edit') }}
+{{ Form::close() }}

@@ -20,30 +20,38 @@ class UserController extends Controller
     {
         return view('user.form');
     }
-    public function read(Request $request,User $user)
-    {
-        if($request->isMethod('post')){
-            User::create($request->all());
-            return redirect('/read')->with('success', 'Данные пользователя успешно made');
-        }
-
+//    public function read(Request $request,User $user)
+//    {
+//        if($request->isMethod('post')){
+//            User::create($request->all());
+//            return redirect('/read')->with('success', 'Данные пользователя успешно made');
+//        }
+//
+//
+//        $users = User::all();
+//        return view('user.read',['users'=>$users]);
+//    }
+    public function index(){
         $users = User::all();
-        return view('user.read',['users'=>$users]);
+        return view('user.index',['users'=>$users]);
+    }
+    public function store(Request $request){
+        User::create($request->all());
+        return redirect()->route('user.index');
     }
 
     public function update(Request $request){
         $user = User::find($request->id);
         $user->update($request->all());
-        $user->save();
-        return redirect('/read')->with('success', 'Данные пользователя успешно обновлены');
+        return redirect()->route('user.index');
 
     }
     public function edit(User $user){
         return view('user.edit',['user'=>$user]);
     }
     public function delete(User $user){
-        $user -> delete();
-       return redirect()->back();
+        $user->delete();
+        return redirect()->back();
     }
 }
 
